@@ -54,9 +54,9 @@
                     <input id="firstClassCount" class="inp-style inp-width" type="text"  value="1">
                 </div>
                 <div class="plus-minus-btn">
-                    <button id="firstClassIncrease">+</button> 
+                    <button onclick="firstClass(true)">+</button> 
                         
-                    <button id="firstClassDecrease">-</button>
+                    <button onclick="firstClass(false)">-</button>
 
                 </div>
             </div>
@@ -77,16 +77,16 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="subtotalPrice">$250</p>
                     </div>
                 </div>
 
                 <div class="amount">
                     <div class="left">
-                        <p>Charge 10% VAT</p>
+                        <p >Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="vat">$25</p>
                     </div>
                 </div>
                 <hr>
@@ -95,11 +95,11 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="total">$275</p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="click" class="btn-style">Book Now</button>
         </div>
 
         <div class="booking-content">
@@ -112,15 +112,6 @@
 
 
     <script>
-
-
-document.getElementById("firstClassIncrease").addEventListener('click',function(){
- firstClass(true);
- })
-
-document.getElementById("firstClassDecrease").addEventListener('click',function(){
-    firstClass(false);
-})
 
 
 
@@ -137,14 +128,10 @@ let  firstClassInputNewCount=firstClassInputCount;
        if(Increase == false && firstClassInputCount>0){
         firstClassNewCount=firstClassInputCount-1;
        }
-    
-    console.log(firstClassInput.value);
     firstClassInput.value=firstClassNewCount;
+    calculate()
+
 }
-
-
-
-
 // document.getElementById("firstClassIncrease").addEventListener('click',function(){
 //  const firstClassInput=document.getElementById("firstClassCount");
 //  const firstClassInputCount=parseInt(firstClassInput.value)
@@ -188,11 +175,8 @@ if( Increase==false && firstClassInputCount>0){
 }
 console.log(firstClassInput.value);
  firstClassInput.value=firstClassNewCount;
+ calculate()
 }
-
-
-
-
 
 // document.getElementById("economyIncrease").addEventListener('click',function(){
 //  const firstClassInput=document.getElementById("economyCount");
@@ -215,8 +199,32 @@ console.log(firstClassInput.value);
 // })
 
 
+//Calculation part.
+function calculate(){
+    const firstCLassInput=document.getElementById("firstClassCount");
+    const firstClassCount=parseInt(firstCLassInput.value);
+
+    const economyInput=document.getElementById("economyCount");
+    const economyCount=parseInt(economyInput.value);
+
+    const totalTaka=firstClassCount*150+economyCount*100;
+    document.getElementById("subtotalPrice").innerText='$'+ totalTaka;
 
 
+    const tax=totalTaka/10;
+    document.getElementById("vat").innerText='$'+ tax;
+
+
+const total=totalTaka+tax;
+document.getElementById("total").innerText='$' + total;
+
+}
+
+
+//alert section
+document.getElementById("click").addEventListener("click",function(){
+     alert("Confirm your Booking? ---Your Total Payment "+ (total).innerText);
+})
 
 
 
