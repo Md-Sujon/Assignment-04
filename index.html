@@ -115,16 +115,16 @@
 
 
 document.getElementById("firstClassIncrease").addEventListener('click',function(){
- firstclass(true);
+ firstClass(true);
  })
 
 document.getElementById("firstClassDecrease").addEventListener('click',function(){
- firstclass(false);
+    firstClass(false);
 })
 
 
 
-function firstclass(Increase){
+function firstClass(Increase){
 
     const firstClassInput=document.getElementById("firstClassCount");
     const firstClassInputCount=parseInt(firstClassInput.value)
@@ -162,21 +162,57 @@ let  firstClassInputNewCount=firstClassInputCount;
 // })
 
 
+
 document.getElementById("economyIncrease").addEventListener('click',function(){
- const firstClassInput=document.getElementById("economyCount");
- const firstClassInputCount=parseInt(firstClassInput.value)
- const firstClassNewCount=firstClassInputCount+1;
- console.log(firstClassInput.value);
- firstClassInput.value=firstClassNewCount;
+    economy(true);
 })
 
+
 document.getElementById("economyDecrease").addEventListener('click',function(){
- const firstClassInput=document.getElementById("economyCount");
- const firstClassInputCount=parseInt(firstClassInput.value)
- const firstClassNewCount=firstClassInputCount-1;
- console.log(firstClassInput.value);
- firstClassInput.value=firstClassNewCount;
+    economy(false);
 })
+
+
+function economy(Increase){
+    const firstClassInput=document.getElementById("economyCount");
+ const firstClassInputCount=parseInt(firstClassInput.value)
+
+let firstClassInputNewCount=firstClassInputCount;
+
+if(Increase==true){
+    firstClassNewCount=firstClassInputCount+1;
+}
+
+if( Increase==false && firstClassInputCount>0){
+    firstClassNewCount=firstClassInputCount-1;
+}
+console.log(firstClassInput.value);
+ firstClassInput.value=firstClassNewCount;
+}
+
+
+
+
+
+// document.getElementById("economyIncrease").addEventListener('click',function(){
+//  const firstClassInput=document.getElementById("economyCount");
+//  const firstClassInputCount=parseInt(firstClassInput.value)
+//  const firstClassNewCount=firstClassInputCount+1;
+//  console.log(firstClassInput.value);
+//  firstClassInput.value=firstClassNewCount;
+// })
+
+// document.getElementById("economyDecrease").addEventListener('click',function(){
+//  const firstClassInput=document.getElementById("economyCount");
+//  const firstClassInputCount=parseInt(firstClassInput.value)
+
+// let firstClassInputNewCount=firstClassInputCount;
+// if(firstClassInputCount>0){
+//     firstClassNewCount=firstClassInputCount-1;
+// }
+// console.log(firstClassInput.value);
+//  firstClassInput.value=firstClassNewCount;
+// })
 
 
 
