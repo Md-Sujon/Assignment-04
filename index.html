@@ -67,8 +67,8 @@
                     <input id="economyCount" class="inp-style inp-width" type="text"  value="1">
                 </div>
                 <div class="plus-minus-btn">
-                   <button id="economyIncrease">+</button> 
-                   <button id="economyDecrease">-</button> 
+                   <button onclick="economy(true)">+</button> 
+                   <button onclick="economy(false)">-</button> 
                 </div>
             </div>
             <div class="calculations">
@@ -149,17 +149,6 @@ let  firstClassInputNewCount=firstClassInputCount;
 // })
 
 
-
-document.getElementById("economyIncrease").addEventListener('click',function(){
-    economy(true);
-})
-
-
-document.getElementById("economyDecrease").addEventListener('click',function(){
-    economy(false);
-})
-
-
 function economy(Increase){
     const firstClassInput=document.getElementById("economyCount");
  const firstClassInputCount=parseInt(firstClassInput.value)
@@ -215,7 +204,7 @@ function calculate(){
     document.getElementById("vat").innerText='$'+ tax;
 
 
-const total=totalTaka+tax;
+  const total=totalTaka+tax;
 document.getElementById("total").innerText='$' + total;
 
 }
